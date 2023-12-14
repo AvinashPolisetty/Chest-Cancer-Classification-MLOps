@@ -3,7 +3,7 @@ from exception import CustomException
 import sys
 from src.Cancerclassifier.pipeline.stage01_data_ingestion import DataIngestionTrainingPipeline
 from src.Cancerclassifier.pipeline.stage02_base_model import PrepareBasemodelPipeline
-
+from src.Cancerclassifier.pipeline.stage03_model_trainer import ModelTrainingPipeline
 
 stage_name="Data Ingestion Stage"
 
@@ -27,4 +27,12 @@ except Exception as e:
     raise CustomException(e,sys)
 
 
+stage_name="Model training Stage"
 
+try:
+    logger.info(f"<<<<<<<<  {stage_name} started  >>>>>>>>")
+    obj=ModelTrainingPipeline()
+    obj.main()
+    logger.info(f"<<<<<<<<  {stage_name} completed  >>>>>>>>")
+except Exception as e:
+    raise CustomException(e,sys)
