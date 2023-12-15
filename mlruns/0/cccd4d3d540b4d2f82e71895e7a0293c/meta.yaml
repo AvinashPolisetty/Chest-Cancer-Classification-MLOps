@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/Chest-Cancer-Classification-MLOps/mlruns/0/cccd4d3d540b4d2f82e71895e7a0293c/artifacts
+end_time: 1702650151776
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cccd4d3d540b4d2f82e71895e7a0293c
+run_name: marvelous-moose-175
+run_uuid: cccd4d3d540b4d2f82e71895e7a0293c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702649920555
+status: 3
+tags: []
+user_id: Lenovo

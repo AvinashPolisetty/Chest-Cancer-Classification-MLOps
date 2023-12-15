@@ -1,6 +1,6 @@
 from src.Cancerclassifier.constants import *
 from src.Cancerclassifier.utils.common import read_yaml,create_directories
-from src.Cancerclassifier.entity.config_entity import DataIngestionConfig,PrepareBaseModelConfig,ModelTrainerConfig
+from src.Cancerclassifier.entity.config_entity import DataIngestionConfig,PrepareBaseModelConfig,ModelTrainerConfig,ModelEvaluationConfig
 from pathlib import Path
 import os
 
@@ -70,4 +70,17 @@ class ConfigurationManager:
             params_image_size=params.IMAGE_SIZE
         )
 
-        return training_config
+        return training_config 
+    
+
+    def get_evaluation_config(self)-> ModelEvaluationConfig:
+        eval_config=ModelEvaluationConfig(
+            path_of_model='artifacts/model_training/model.h5',
+            training_data='artifacts/data_ingestion/Chest-CT-Scan-data',
+            all_params=self.params,
+            mlflow_uri='https://dagshub.com/avinash8/Chest-Cancer-Classification-MLOps.mlflow ',
+            params_batch_size=self.params.BATCH_SIZE,
+            params_image_size=self.params.IMAGE_SIZE
+        )
+
+        return eval_config
